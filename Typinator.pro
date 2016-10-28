@@ -12,6 +12,8 @@ TARGET = Typinator
 TEMPLATE = app
 
 
-SOURCES += main.cpp
+SOURCES += main.cpp \
+    game.cpp
 
-HEADERS  +=
+HEADERS  += \
+    game.h
