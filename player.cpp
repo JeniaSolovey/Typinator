@@ -3,5 +3,5 @@
 
 Player::Player(): QGraphicsPixmapItem()
 {
-    setPixmap(QPixmap(":/img/ships/res/img/playerShip.png").scaled(120,100));
+    setPixmap(QPixmap(":/res/img/playerShip.png").scaled(120,100));
 }

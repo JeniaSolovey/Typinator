@@ -2,5 +2,5 @@
 
 Enemy::Enemy()
 {
-    setPixmap(QPixmap(":/img/ships/res/img/simpleEnemyShip.png").scaled(60,100));
+    setPixmap(QPixmap(":/res/img/simpleEnemyShip.png").scaled(60,100));
 }
