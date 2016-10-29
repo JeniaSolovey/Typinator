@@ -13,6 +13,7 @@ Game::Game(QWidget * parent)
     //scene settings
     QGraphicsScene *scene = new QGraphicsScene();
     scene->setSceneRect(0,0,this->width(), this->height());
+    scene->setBackgroundBrush(QBrush(QPixmap(":/res/img/space.png").scaled(width(),height())));
     setScene(scene);
 
     Player *player = new Player();
