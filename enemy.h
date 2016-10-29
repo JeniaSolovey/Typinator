@@ -9,6 +9,7 @@ class Enemy: public QObject, public QGraphicsPixmapItem
     Q_OBJECT
 public:
     Enemy();
+    void setRandomPosition();
 };
 
 #endif // ENEMY_H

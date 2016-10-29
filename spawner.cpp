@@ -8,8 +8,6 @@ Spawner::Spawner(QGraphicsScene *scene)
 void Spawner::SpawnEnemy()
 {
         Enemy *enemy = new Enemy();
-        int maxPosibleXPosition = scene->width()-(enemy->pixmap().width());
-        int randomPositionX = qrand()% maxPosibleXPosition;
-        enemy->setPos(randomPositionX, 0);
         scene->addItem(enemy);
+        enemy->setRandomPosition();
 }
