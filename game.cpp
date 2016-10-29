@@ -1,5 +1,6 @@
 #include "game.h"
 #include "player.h"
+#include <QTimer>
 
 Game::Game(QWidget * parent)
 {
@@ -18,4 +19,8 @@ Game::Game(QWidget * parent)
     player->setPos(width()/2-player->pixmap().width()/2, height()-player->pixmap().height());
     scene->addItem(player);
 
+    spawner = new Spawner(scene);
+    QTimer *timer = new QTimer();
+    QObject::connect(timer, SIGNAL(timeout()), spawner, SLOT(SpawnEnemy()));
+    timer->start(4000);
 }

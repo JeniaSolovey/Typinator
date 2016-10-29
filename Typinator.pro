@@ -14,11 +14,15 @@ TEMPLATE = app
 
 SOURCES += main.cpp \
     game.cpp \
-    player.cpp
+    player.cpp \
+    enemy.cpp \
+    spawner.cpp
 
 HEADERS  += \
     game.h \
-    player.h
+    player.h \
+    enemy.h \
+    spawner.h
 
 RESOURCES += \
     res.qrc
