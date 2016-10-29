@@ -13,7 +13,12 @@ TEMPLATE = app
 
 
 SOURCES += main.cpp \
-    game.cpp
+    game.cpp \
+    player.cpp
 
 HEADERS  += \
-    game.h
+    game.h \
+    player.h
+
+RESOURCES += \
+    res.qrc
