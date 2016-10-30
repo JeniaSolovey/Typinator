@@ -4,5 +4,6 @@
         <file>res/img/simpleEnemyShip.png</file>
         <file>res/img/space.png</file>
         <file>res/img/redBullet.png</file>
+        <file>res/words.txt</file>
     </qresource>
 </RCC>
