@@ -3,12 +3,16 @@
 
 #include <QGraphicsPixmapItem>
 #include <QObject>
+#include <QString>
+#include "word.h"
 
 class Enemy: public QObject, public QGraphicsPixmapItem
 {
     Q_OBJECT
 public:
-    Enemy();
+    Word* word;
+
+    Enemy(QString word);
     void setRandomPosition();
 public slots:
     void move();
