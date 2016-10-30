@@ -3,5 +3,6 @@
         <file>res/img/playerShip.png</file>
         <file>res/img/simpleEnemyShip.png</file>
         <file>res/img/space.png</file>
+        <file>res/img/redBullet.png</file>
     </qresource>
 </RCC>

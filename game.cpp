@@ -18,6 +18,8 @@ Game::Game(QWidget * parent)
 
     Player *player = new Player();
     player->setPos(width()/2-player->pixmap().width()/2, height()-player->pixmap().height());
+    player->setFlag(QGraphicsItem::ItemIsFocusable);
+    player->setFocus();
     scene->addItem(player);
 
     spawner = new Spawner(scene);

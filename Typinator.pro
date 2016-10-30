@@ -16,13 +16,18 @@ SOURCES += main.cpp \
     game.cpp \
     player.cpp \
     enemy.cpp \
-    spawner.cpp
+    spawner.cpp \
+    bullet.cpp \
+    bullet.cpp
 
 HEADERS  += \
     game.h \
     player.h \
     enemy.h \
-    spawner.h
+    spawner.h \
+    bullet.h
 
 RESOURCES += \
     res.qrc
+
+DISTFILES +=

@@ -4,6 +4,7 @@
 #include <QGraphicsScene>
 #include <qmath.h>
 #include <QTimer>
+
 Enemy::Enemy()
 {
     setPixmap(QPixmap(":/res/img/simpleEnemyShip.png").scaled(60,100));
