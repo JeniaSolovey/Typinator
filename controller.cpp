@@ -1,17 +1,17 @@
-#include "spawner.h"
+#include "controller.h"
 #include "enemy.h"
-QString Spawner::getRandomWord()
+QString Controller::getRandomWord()
 {
     return words.at(qrand()%words.size()-1);
 }
 
-Spawner::Spawner(QGraphicsScene *scene)
+Controller::Controller(QGraphicsScene *scene)
 {
     this->scene = scene;
     LoadWords();
 }
 
-void Spawner::LoadWords()
+void Controller::LoadWords()
 {
     QFile file(":/res/words.txt");
     QByteArray arr;
@@ -26,7 +26,7 @@ void Spawner::LoadWords()
         }
 }
 
-void Spawner::SpawnEnemy()
+void Controller::SpawnEnemy()
 {
         Enemy *enemy = new Enemy(getRandomWord());
         scene->addItem(enemy);

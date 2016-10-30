@@ -18,5 +18,6 @@ void Player::Shot(QPoint target)
 
 void Player::keyPressEvent(QKeyEvent *event)
 {
+
     Shot(QPoint(0,0));
 }

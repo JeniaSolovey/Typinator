@@ -22,8 +22,8 @@ Game::Game(QWidget * parent)
     player->setFocus();
     scene->addItem(player);
 
-    spawner = new Spawner(scene);
+    controller = new Controller(scene);
     QTimer *timer = new QTimer();
-    QObject::connect(timer, SIGNAL(timeout()), spawner, SLOT(SpawnEnemy()));
+    QObject::connect(timer, SIGNAL(timeout()), controller, SLOT(SpawnEnemy()));
     timer->start(4000);
 }

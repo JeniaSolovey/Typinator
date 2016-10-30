@@ -1,13 +1,13 @@
 #ifndef GAME_H
 #define GAME_H
 
-#include "spawner.h"
+#include "controller.h"
 #include <QGraphicsView>
 
 class Game: public QGraphicsView
 {
 private:
-    Spawner *spawner;
+    Controller *controller;
 public:
     Game(QWidget *parent = 0);
     QGraphicsScene * scene;
