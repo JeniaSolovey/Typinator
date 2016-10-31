@@ -10,6 +10,9 @@ private:
 public:
     QString word;
     Word(QString word, QGraphicsItem *parent);
+    void RemoveFirstCharacter();
+    void VisualRemoveFirstCharacter();
+    void UpdateWord();
 };
 
 #endif // WORD_H

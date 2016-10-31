@@ -22,7 +22,7 @@ Game::Game(QWidget * parent)
     player->setFocus();
     scene->addItem(player);
 
-    controller = new Controller(scene);
+    controller = new Controller(scene, player);
     QTimer *timer = new QTimer();
     QObject::connect(timer, SIGNAL(timeout()), controller, SLOT(SpawnEnemy()));
     timer->start(4000);

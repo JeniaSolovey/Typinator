@@ -1,6 +1,7 @@
 #ifndef CONTROLLER_H
 #define CONTROLLER_H
 
+#include <player.h>
 #include <QObject>
 #include <QGraphicsScene>
 #include <QFile>
@@ -10,10 +11,11 @@ class Controller: public QObject
 {
     Q_OBJECT
 private:
+    Player *player;
     QGraphicsScene *scene;
     QString getRandomWord();
 public:
-    Controller(QGraphicsScene *scene);
+    Controller(QGraphicsScene *scene, Player* player);
     QStringList words;
     void LoadWords();
 public slots:

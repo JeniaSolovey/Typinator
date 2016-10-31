@@ -8,9 +8,9 @@ class Bullet: public QObject, public QGraphicsPixmapItem
 {
     Q_OBJECT
 private:
-    QPoint target;
+    QPointF target;
 public:
-    Bullet(QPoint target);
+    Bullet(QPointF target);
     void Throw();
 private slots:
     void move();

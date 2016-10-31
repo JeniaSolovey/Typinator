@@ -13,6 +13,7 @@ Enemy::Enemy(QString word)
     connect(timer, SIGNAL(timeout()),this, SLOT(move()));
     timer->start(40);
 
+    inFocus = false;
     this->word = new Word(word, this);
 }
 
@@ -40,4 +41,28 @@ void Enemy::move()
     double dx = STEP_SIZE * qCos(qDegreesToRadians(angle));
 
     setPos(x()+dx, y()+dy);
+}
+
+void Enemy::checkHit(char key)
+{
+    if (key == word->word.at(0).toUpper())
+    {
+    inFocus = true;
+    word->RemoveFirstCharacter();
+    word->setDefaultTextColor(Qt::red);
+    emit hurt(mapToScene(transformOriginPoint()));
+    }
+}
+
+void Enemy::checkAimHit(char key)
+{
+    if (inFocus == true)
+    {
+        if (key == word->word.at(0).toUpper())
+        {
+        inFocus = true;
+        word->RemoveFirstCharacter();
+        emit hurt(mapToScene(transformOriginPoint()));
+        }
+    }
 }
