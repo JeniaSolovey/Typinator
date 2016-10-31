@@ -6,6 +6,7 @@
 #include <QGraphicsScene>
 #include <QFile>
 #include <QStringList>
+#include <QTimer>
 
 class Controller: public QObject
 {
@@ -13,6 +14,7 @@ class Controller: public QObject
 private:
     Player *player;
     QGraphicsScene *scene;
+    QTimer *timer;
     QString getRandomWord();
 public:
     Controller(QGraphicsScene *scene, Player* player);

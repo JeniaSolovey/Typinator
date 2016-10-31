@@ -1,4 +1,5 @@
 #include "enemy.h"
+#include "player.h"
 #include <QLineF>
 #include <QPointF>
 #include <QGraphicsScene>
@@ -8,10 +9,6 @@
 Enemy::Enemy(QString word)
 {
     setPixmap(QPixmap(":/res/img/simpleEnemyShip.png").scaled(60,100));
-
-    QTimer *timer = new QTimer();
-    connect(timer, SIGNAL(timeout()),this, SLOT(move()));
-    timer->start(40);
 
     inFocus = false;
     this->word = new Word(word, this);
@@ -34,6 +31,14 @@ void Enemy::setRandomPosition()
 
 void Enemy::move()
 {
+
+    if (y() > scene()->height()- (pixmap().height()*2))
+    {
+    scene()->removeItem(this);
+    delete this;
+    return;
+    }
+
     double STEP_SIZE = 2;
     double angle = rotation()+90;
 

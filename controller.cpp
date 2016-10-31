@@ -1,7 +1,10 @@
 #include "controller.h"
 #include "enemy.h"
+#include "time.h"
+
 QString Controller::getRandomWord()
 {
+    qsrand(time(NULL));
     return words.at(qrand()%words.size()-1);
 }
 
@@ -9,6 +12,8 @@ Controller::Controller(QGraphicsScene *scene, Player *player)
 {
     this->scene = scene;
     this->player = player;
+    this->timer = new QTimer();
+    timer->start(40); //move timer
     LoadWords();
 }
 
@@ -31,6 +36,9 @@ void Controller::SpawnEnemy()
 {
         Enemy *enemy = new Enemy(getRandomWord());
         scene->addItem(enemy);
+
+        connect(timer, SIGNAL(timeout()),enemy, SLOT(move()));
+
         connect(player, SIGNAL(Throw(char)), enemy, SLOT(checkHit(char)));
         connect(enemy, SIGNAL(hurt(QPointF)), player, SLOT(Hit(QPointF)));
 

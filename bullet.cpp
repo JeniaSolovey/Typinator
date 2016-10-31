@@ -48,7 +48,7 @@ void Bullet::move()
     }
 
 
-    double STEP_SIZE = 10;
+    double STEP_SIZE = 20;
     double angleToTarget = rotation();
 
     double dy = STEP_SIZE * qSin(qDegreesToRadians(angleToTarget));
