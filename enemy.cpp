@@ -34,6 +34,7 @@ void Enemy::move()
 
     if (y() > scene()->height()- (pixmap().height()*2))
     {
+    emit kick();
     scene()->removeItem(this);
     delete this;
     return;

@@ -22,6 +22,7 @@ public slots:
     void checkAimHit(char key);
 signals:
     void hurt(QPointF pos);
+    void kick();
 };
 
 #endif // ENEMY_H

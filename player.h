@@ -8,6 +8,7 @@ class Player: public QObject, public QGraphicsPixmapItem
 {
     Q_OBJECT
 public:
+    int lives;
     bool Aim;
     Player();
     void Shot(QPointF target);
@@ -18,7 +19,6 @@ public slots:
 signals:
     void Throw(char key);
     void AimShot(char key);
-
 };
 
 #endif // PLAYER_H

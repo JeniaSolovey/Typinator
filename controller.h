@@ -14,14 +14,19 @@ class Controller: public QObject
 private:
     Player *player;
     QGraphicsScene *scene;
-    QTimer *timer;
+    QTimer *moveTimer;
     QString getRandomWord();
+
+    QGraphicsTextItem *livesLabel;
+    void UpdateLivesLabel();
 public:
     Controller(QGraphicsScene *scene, Player* player);
     QStringList words;
     void LoadWords();
+    void GameOver();
 public slots:
     void SpawnEnemy();
+    void PlayerFail();
 };
 
 #endif // CONTROLLER_H
