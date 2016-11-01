@@ -9,6 +9,7 @@
 
 Player::Player(): QGraphicsPixmapItem()
 {
+    score = 0;
     Aim =false;
     setPixmap(QPixmap(":/res/img/playerShip.png").scaled(120,100));
 }
@@ -31,6 +32,7 @@ void Player::Hit(QPointF pos)
 {
     Aim=true;
     Shot(pos);
+    score ++;
 }
 
 void Player::Kill()

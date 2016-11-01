@@ -9,6 +9,7 @@ class Player: public QObject, public QGraphicsPixmapItem
     Q_OBJECT
 public:
     int lives;
+    int score;
     bool Aim;
     Player();
     void Shot(QPointF target);

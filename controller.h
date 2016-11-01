@@ -15,10 +15,12 @@ private:
     Player *player;
     QGraphicsScene *scene;
     QTimer *moveTimer;
+    QTimer *spawnTimer;
     QString getRandomWord();
 
     QGraphicsTextItem *livesLabel;
-    void UpdateLivesLabel();
+    QGraphicsTextItem *scoreLabel;
+    void UpdateLabels();
 public:
     Controller(QGraphicsScene *scene, Player* player);
     QStringList words;
@@ -27,6 +29,7 @@ public:
 public slots:
     void SpawnEnemy();
     void PlayerFail();
+    void EnemyIsKilled();
 };
 
 #endif // CONTROLLER_H
