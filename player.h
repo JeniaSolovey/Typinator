@@ -3,6 +3,8 @@
 
 #include <QGraphicsPixmapItem>
 #include <QObject>
+#include "bullet.h"
+#include <QTimer>
 
 class Player: public QObject, public QGraphicsPixmapItem
 {
@@ -11,6 +13,10 @@ public:
     int lives;
     int score;
     bool Aim;
+    QTimer *bulletTimer;
+
+    Bullet *bullet;
+
     Player();
     void Shot(QPointF target);
     void keyPressEvent(QKeyEvent *event);

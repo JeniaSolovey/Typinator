@@ -5,5 +5,8 @@
         <file>res/img/space.png</file>
         <file>res/img/redBullet.png</file>
         <file>res/words.txt</file>
+        <file>res/img/lives.png</file>
+        <file>res/img/score.png</file>
+        <file>res/img/gameOver.png</file>
     </qresource>
 </RCC>

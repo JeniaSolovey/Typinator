@@ -3,6 +3,7 @@
 
 #include <QGraphicsTextItem>
 #include <QString>
+
 class Word: public QGraphicsTextItem
 {
 private:

@@ -22,5 +22,12 @@ Game::Game(QWidget * parent)
     player->setFocus();
     scene->addItem(player);
 
+    setRenderHint(QPainter::SmoothPixmapTransform);
+
+    setOptimizationFlags(QGraphicsView::DontClipPainter);
+    setOptimizationFlags(QGraphicsView::DontSavePainterState);
+    setOptimizationFlags(QGraphicsView::DontAdjustForAntialiasing);
+    setCacheMode(QGraphicsView::CacheBackground);
+
     controller = new Controller(scene, player);
 }

@@ -9,6 +9,9 @@
 
 Player::Player(): QGraphicsPixmapItem()
 {
+    bulletTimer = new QTimer();
+    bulletTimer->start(10);
+
     score = 0;
     Aim =false;
     setPixmap(QPixmap(":/res/img/playerShip.png").scaled(120,100));
@@ -16,7 +19,8 @@ Player::Player(): QGraphicsPixmapItem()
 
 void Player::Shot(QPointF target)
 {
-    Bullet *bullet = new Bullet(target);
+    bullet = new Bullet(target);
+    connect(bulletTimer, SIGNAL(timeout()), bullet, SLOT(move()));
     bullet->setPos(pos().x()+pixmap().width()/2 - bullet->pixmap().width()/2, pos().y());
     bullet->Throw();
     scene()->addItem(bullet);

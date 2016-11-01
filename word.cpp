@@ -6,7 +6,9 @@
 Word::Word(QString word, QGraphicsItem *parent): QGraphicsTextItem(parent)
 {
     this->word = word;
-    setPlainText(word);
+    setTextWidth(200);
+    setHtml("<center>"+word+"</center>");
+    setFont(QFont(QString("Courier New")));
     setDefaultTextColor(QColor(Qt::gray));
 }
 
@@ -17,10 +19,10 @@ void Word::RemoveFirstCharacter()
 
 void Word::VisualRemoveFirstCharacter()
 {
-    setPlainText(toPlainText().remove(0,1));
+    setHtml("<center>"+toPlainText().remove(0,1)+"</center>");
 }
 
 void Word::UpdateWord()
 {
-    setPlainText(word);
+    setHtml("<center>"+word+"</center>");
 }

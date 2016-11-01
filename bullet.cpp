@@ -17,10 +17,6 @@ void Bullet::Throw()
     QLineF ln(mapToScene(transformOriginPoint()), target);
     int angle =-1* ln.angle();
     setRotation(angle);
-
-    QTimer *timer = new QTimer();
-    connect(timer, SIGNAL(timeout()), this, SLOT(move()));
-    timer->start(10);
 }
 
 void Bullet::move()

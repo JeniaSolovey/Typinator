@@ -27,11 +27,11 @@ void Enemy::setRandomPosition()
     setRotation(angle);
 
     scene()->addItem(this->word);
+    word->setPos( (this->pixmap().width()/2) - (word->textWidth()/2)+5, 0 );
 }
 
 void Enemy::move()
 {
-
     if (y() > scene()->height()- (pixmap().height()*2))
     {
     emit kick();
