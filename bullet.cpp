@@ -3,6 +3,7 @@
 #include <QTimer>
 #include <qmath.h>
 #include <QGraphicsScene>
+#include <typeinfo>
 
 Bullet::Bullet(QPointF target)
 {
@@ -47,8 +48,8 @@ void Bullet::move()
     double STEP_SIZE = 20;
     double angleToTarget = rotation();
 
-    double dy = STEP_SIZE * qSin(qDegreesToRadians(angleToTarget));
-    double dx = STEP_SIZE * qCos(qDegreesToRadians(angleToTarget));
+    double dy = STEP_SIZE * qSin(angleToTarget * 3.14/180 );
+    double dx = STEP_SIZE * qCos(angleToTarget * 3.14/180);
 
     setPos(x()+dx, y()+dy);
 }

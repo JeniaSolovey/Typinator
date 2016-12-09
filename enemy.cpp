@@ -43,8 +43,8 @@ void Enemy::move()
     double STEP_SIZE = 2;
     double angle = rotation()+90;
 
-    double dy = STEP_SIZE * qSin(qDegreesToRadians(angle));
-    double dx = STEP_SIZE * qCos(qDegreesToRadians(angle));
+    double dy = STEP_SIZE * qSin(angle* 3.14/180);
+    double dx = STEP_SIZE * qCos(angle* 3.14/180 );
 
     setPos(x()+dx, y()+dy);
 }

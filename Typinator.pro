@@ -17,7 +17,6 @@ SOURCES += main.cpp \
     player.cpp \
     enemy.cpp \
     bullet.cpp \
-    bullet.cpp \
     word.cpp \
     controller.cpp
 
