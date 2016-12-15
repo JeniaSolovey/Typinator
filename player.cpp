@@ -17,7 +17,7 @@ Player::Player(): QGraphicsPixmapItem()
     setPixmap(QPixmap(":/res/img/playerShip.png").scaled(120,100));
 }
 
-void Player::Shot(QPointF target)
+void Player::Shot(Enemy* target)
 {
     bullet = new Bullet(target);
     connect(bulletTimer, SIGNAL(timeout()), bullet, SLOT(move()));
@@ -32,10 +32,10 @@ void Player::keyPressEvent(QKeyEvent *event)
     if (!Aim) emit Throw(event->key());
 }
 
-void Player::Hit(QPointF pos)
+void Player::Hit(Enemy *enemyPos)
 {
     Aim=true;
-    Shot(pos);
+    Shot(enemyPos);
     score ++;
 }
 

@@ -21,7 +21,7 @@ public slots:
     void checkHit(char key);
     void checkAimHit(char key);
 signals:
-    void hurt(QPointF pos);
+    void hurt(Enemy* TargetEnemy);
     void kick();
 };
 

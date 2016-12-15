@@ -56,7 +56,7 @@ void Enemy::checkHit(char key)
     inFocus = true;
     word->RemoveFirstCharacter();
     word->setDefaultTextColor(Qt::red);
-    emit hurt(mapToScene(transformOriginPoint()));
+    emit hurt(this);
     }
 }
 
@@ -68,7 +68,7 @@ void Enemy::checkAimHit(char key)
         {
         inFocus = true;
         word->RemoveFirstCharacter();
-        emit hurt(mapToScene(transformOriginPoint()));
+        emit hurt(this);
         }
     }
 }

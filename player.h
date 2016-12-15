@@ -18,10 +18,10 @@ public:
     Bullet *bullet;
 
     Player();
-    void Shot(QPointF target);
+    void Shot(Enemy *target);
     void keyPressEvent(QKeyEvent *event);
 public slots:
-    void Hit(QPointF pos);
+    void Hit(Enemy* enemyPos);
     void Kill();
 signals:
     void Throw(char key);

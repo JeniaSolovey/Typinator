@@ -5,9 +5,10 @@
 #include <QGraphicsScene>
 #include <typeinfo>
 
-Bullet::Bullet(QPointF target)
+Bullet::Bullet(Enemy *target)
 {
     this->target = target;
+
     setPixmap(QPixmap(":/res/img/redBullet.png"));
 }
 
@@ -15,7 +16,7 @@ void Bullet::Throw()
 {
     setTransformOriginPoint(pixmap().width()/2, pixmap().height()/2);
 
-    QLineF ln(mapToScene(transformOriginPoint()), target);
+    QLineF ln(mapToScene(transformOriginPoint()), target->mapToScene(target->transformOriginPoint()));
     int angle =-1* ln.angle();
     setRotation(angle);
 }
@@ -24,7 +25,7 @@ void Bullet::move()
 {
     QList<QGraphicsItem *> colliding_items = collidingItems();
     for (int i = 0, n = colliding_items.size(); i < n; ++i){
-        if (typeid(*(colliding_items[i])) == typeid(Enemy)){
+        if (typeid(*(colliding_items[i])) == typeid(Enemy) && colliding_items[i] == target ){
 
             Enemy *enemy = static_cast<Enemy*> (colliding_items[i]);
             if(enemy->word->toPlainText().size() > 2)

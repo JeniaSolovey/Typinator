@@ -102,7 +102,7 @@ void Controller::SpawnEnemy()
         connect(moveTimer, SIGNAL(timeout()),enemy, SLOT(move()));
 
         connect(player, SIGNAL(Throw(char)), enemy, SLOT(checkHit(char)));
-        connect(enemy, SIGNAL(hurt(QPointF)), player, SLOT(Hit(QPointF)));
+        connect(enemy, SIGNAL(hurt(Enemy*)), player, SLOT(Hit(Enemy*)));
 
         connect(player, SIGNAL(AimShot(char)), enemy, SLOT(checkAimHit(char)));
         connect(enemy, SIGNAL(destroyed(QObject*)), player, SLOT(Kill()));

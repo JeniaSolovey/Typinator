@@ -3,14 +3,15 @@
 
 #include <QGraphicsPixmapItem>
 #include <QObject>
+#include <enemy.h>
 
 class Bullet: public QObject, public QGraphicsPixmapItem
 {
     Q_OBJECT
 private:
-    QPointF target;
+    Enemy *target;
 public:
-    Bullet(QPointF target);
+    Bullet(Enemy* target);
     void Throw();
 private slots:
     void move();
