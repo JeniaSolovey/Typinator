@@ -17,6 +17,7 @@ private:
     QTimer *moveTimer;
     QTimer *spawnTimer;
     QString getRandomWord();
+    int difficultLevel;
 
     QGraphicsTextItem *livesLabel;
     QGraphicsTextItem *scoreLabel;

@@ -6,7 +6,28 @@
 QString Controller::getRandomWord()
 {
     qsrand(time(NULL));
-    return words.at(qrand()%(words.size()-1));
+
+    int step = 50;
+    int size = words.size()-1;
+    int max = size;
+    int min = 0;
+    int randomNumber = 0;
+
+    if (this->difficultLevel+step < size)
+    {
+        min = this->difficultLevel;
+        max = this->difficultLevel+step;
+        this->difficultLevel+=step;
+    }
+    else
+    {
+        min = size - (int)(size/10);
+        max = size;
+    }
+
+    randomNumber = min + qrand()%(max-min);
+
+    return words.at(  randomNumber   );
 }
 
 void Controller::UpdateLabels()
@@ -21,6 +42,7 @@ Controller::Controller(QGraphicsScene *scene, Player *player)
     this->player = player;
     this->moveTimer = new QTimer();
     this->spawnTimer = new QTimer();
+    this->difficultLevel = 0;
 
     moveTimer->start(40);
     spawnTimer->start(4000);
@@ -77,14 +99,6 @@ void Controller::GameOver()
 {
     moveTimer->stop();
     spawnTimer->stop();
-
-    /*QGraphicsTextItem *gameOverLabel = new QGraphicsTextItem();
-    gameOverLabel->setTextWidth(200);
-    gameOverLabel->setHtml("<center>GAME OVER</center>");
-    gameOverLabel->setDefaultTextColor(Qt::red);
-    gameOverLabel->setPos(scene->width()/2 - (gameOverLabel->textWidth()/2), scene->height()/3);
-    gameOverLabel->setFont(QFont(QString("Courier New"),30));
-    scene->addItem(gameOverLabel);*/
 
     QGraphicsPixmapItem *gemeOverPixmap = new QGraphicsPixmapItem();
     gemeOverPixmap->setPixmap(QPixmap(":/res/img/gameOver.png"));
