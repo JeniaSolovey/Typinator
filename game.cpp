@@ -1,6 +1,8 @@
 #include "game.h"
 #include "player.h"
 #include <QTimer>
+#include <QMediaPlayer>
+#include <QMediaPlaylist>
 
 Game::Game(QWidget * parent)
 {
@@ -21,6 +23,16 @@ Game::Game(QWidget * parent)
     player->setFlag(QGraphicsItem::ItemIsFocusable);
     player->setFocus();
     scene->addItem(player);
+
+
+    QMediaPlaylist *playlist = new QMediaPlaylist();
+    playlist->addMedia(QUrl("qrc:/res/sound/background.mp3"));
+    playlist->setPlaybackMode(QMediaPlaylist::Loop);
+
+    QMediaPlayer *mediaPlayer = new QMediaPlayer();
+    mediaPlayer->setPlaylist(playlist);
+    mediaPlayer->setVolume(50);
+    mediaPlayer->play();
 
     setRenderHint(QPainter::SmoothPixmapTransform);
 

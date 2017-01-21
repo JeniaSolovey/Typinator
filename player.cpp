@@ -15,6 +15,9 @@ Player::Player(): QGraphicsPixmapItem()
     score = 0;
     Aim =false;
     setPixmap(QPixmap(":/res/img/playerShip.png").scaled(120,100));
+
+    shotSound = new QMediaPlayer();
+    shotSound->setMedia(QUrl("qrc:/res/sound/shot_sound.wav"));
 }
 
 void Player::Shot(Enemy* target)
@@ -24,6 +27,11 @@ void Player::Shot(Enemy* target)
     bullet->setPos(pos().x()+pixmap().width()/2 - bullet->pixmap().width()/2, pos().y());
     bullet->Throw();
     scene()->addItem(bullet);
+
+    shotSound->play();
+    if (shotSound->PlayingState == QMediaPlayer::PlayingState)
+    { shotSound->setPosition(0);  }
+
 }
 
 void Player::keyPressEvent(QKeyEvent *event)

@@ -5,6 +5,7 @@
 #include <QObject>
 #include "bullet.h"
 #include <QTimer>
+#include <QMediaPlayer>
 
 class Player: public QObject, public QGraphicsPixmapItem
 {
@@ -20,6 +21,8 @@ public:
     Player();
     void Shot(Enemy *target);
     void keyPressEvent(QKeyEvent *event);
+private:
+    QMediaPlayer *shotSound;
 public slots:
     void Hit(Enemy* enemyPos);
     void Kill();

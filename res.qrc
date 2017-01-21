@@ -8,5 +8,7 @@
         <file>res/img/lives.png</file>
         <file>res/img/score.png</file>
         <file>res/img/gameOver.png</file>
+        <file>res/sound/shot_sound.wav</file>
+        <file>res/sound/background.mp3</file>
     </qresource>
 </RCC>
